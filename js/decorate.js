@@ -26,29 +26,77 @@
   /* -----------------------------
       1. 오너먼트 그리드 생성
   ----------------------------- */
-  function buildPalette() {
+
+    function buildPalette() {
     ornamentGrid.innerHTML = '';
     for (let i = 1; i <= ORN_COUNT; i++) {
-      const src = `${ORN_PATH}${ORN_PREFIX}${i}${ORN_EXT}`;
+        const src = `${ORN_PATH}${ORN_PREFIX}${i}${ORN_EXT}`;
 
-      const slot = document.createElement('div');
-      slot.className = 'slot';
-      slot.draggable = true;
-      slot.dataset.src = src;
+        const slot = document.createElement('div');
+        slot.className = 'slot';
+        slot.draggable = true;
+        slot.dataset.src = src;
 
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = `orn${i}`;
-      slot.appendChild(img);
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `orn${i}`;
+        slot.appendChild(img);
 
-      slot.addEventListener('dragstart', (e) => {
+        /*** --------------------------
+             데스크톱 dragstart
+        --------------------------- ***/
+        slot.addEventListener('dragstart', (e) => {
         dragSrc = src;
         e.dataTransfer.setData('text/plain', src);
-      });
+        });
 
-      ornamentGrid.appendChild(slot);
+        /*** --------------------------
+             모바일 pointer drag 지원
+        --------------------------- ***/
+        slot.addEventListener("pointerdown", (e) => {
+        // 모바일 드래그 시작
+        dragSrc = src;
+
+        // 드래그 중 표시되는 ghost 이미지
+        const ghost = document.createElement("img");
+        ghost.src = src;
+        ghost.className = "drag-ghost";
+        document.body.appendChild(ghost);
+
+        const moveGhost = (ev) => {
+            ghost.style.left = ev.clientX + "px";
+            ghost.style.top = ev.clientY + "px";
+        };
+
+        const endDrag = (ev) => {
+            ghost.remove();
+            document.removeEventListener("pointermove", moveGhost);
+            document.removeEventListener("pointerup", endDrag);
+
+            const rect = treeArea.getBoundingClientRect();
+            const inTree = ev.clientX >= rect.left &&
+                        ev.clientX <= rect.right &&
+                        ev.clientY >= rect.top &&
+                        ev.clientY <= rect.bottom;
+
+            if (inTree) {
+            const x = ev.clientX - rect.left;
+            const y = ev.clientY - rect.top;
+            addPlacedItem({ src, x, y });
+            }
+
+            dragSrc = null;
+        };
+
+        moveGhost(e); 
+        document.addEventListener("pointermove", moveGhost);
+        document.addEventListener("pointerup", endDrag);
+        });
+
+        ornamentGrid.appendChild(slot);
     }
-  }
+    }
+
 
   /* -----------------------------
       2. 트리에 드롭
@@ -208,7 +256,7 @@ saveBtn.addEventListener('click', () => {
 
   html2canvas(captureWrapper, {
     useCORS: true,
-    backgroundColor: null,
+    backgroundColor: "#ffffff",
     scale: 3, 
   }).then(canvas => {
     const link = document.createElement('a');

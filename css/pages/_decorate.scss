@@ -100,15 +100,17 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
 }
 
 /* slot */
 .slot {
-  width: 44px;
-  height: 44px;
+  width: 72px;
+  height: 72px;
   background: #fff;
   border-radius: 6px;
   border: 1px solid #e6e6e6;
@@ -119,9 +121,20 @@
   overflow: hidden;
 }
 
+.drag-ghost {
+  position: fixed;
+  width: 60px;
+  height: auto;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  opacity: 0.9;
+}
+
+
 .slot img {
-  width: 36px;
-  height: 36px;
+  width: 56px;
+  height: 56px;
   object-fit: contain;
   user-select: none;
   pointer-events: none;
@@ -140,10 +153,3 @@
   transition: transform .12s ease, background .12s ease;
 }
 .save-btn:hover { transform: translateY(-3px); }
-
-/* responsive */
-@media (max-width: 720px) {
-  // .tree-area { width: 260px; height: 330px; }
-  .grid { grid-template-columns: repeat(4, 1fr); }
-  .slot { width: 44px; height: 44px; }
-}
