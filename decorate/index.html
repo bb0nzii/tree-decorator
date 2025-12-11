@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="../assets/icons/favicon.ico">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>트리 꾸미기</title>
 </head>
-<body>
-    
+<body class="deco">
+    <header class="home-header"></header>
+
+    <div class="container deco-page">
+        <h1 class="deco__title">내 트리 꾸미기</h1>
+        <p class="deco__subtitle">오너먼트를 트리에 드래그해주세요.</p>
+
+        <div class="tree-area" id="treeArea">
+            <img src="../assets/tree/tree.svg" class="deco__tree" alt="tree"/>
+            <!-- placed ornaments will be appended here -->
+        </div>
+
+        <div class="board">
+            <p class="board__text">오너먼트 그려주신 모든 분들 감사합니다!<br>
+                새롭게 그림 보내주시면 실시간으로 추가해드립니당
+            </p>
+            <div class="grid" id="ornamentGrid" aria-label="ornament board"></div>
+        </div>
+
+        <div class="save-btn" id="saveImageBtn" role="button">내 트리 저장하기 (이미지)</div>
+        <div class="save-btn secondary" id="saveStateBtn" role="button">트리 상태 저장</div>
+        <div class="save-btn neutral" id="loadStateBtn" role="button">저장된 트리 불러오기</div>
+        <div class="hint">※ 트리 위 장식 더블클릭하면 삭제, 클릭하면 선택됩니다.</div>
+    </div>
+
+    <footer class="home-footer"></footer>
+
+    <!-- html2canvas CDN for export -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="../js/decorate.js"></script>
 </body>
 </html>

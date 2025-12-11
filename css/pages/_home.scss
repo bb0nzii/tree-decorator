@@ -22,14 +22,11 @@
 
 .hero{
   width: 100%;
-  margin: auto 0;
   margin: 3rem 0 3rem 0;
 
     .hero__content {
 
         .hero__title {
-            // border: 1px solid;
-            font-family: 'SchoolSafetyWing';
             font-size: 3rem;
         }
 
@@ -84,6 +81,13 @@
                 &:hover {
                     background-color: $color-btn__hover;
                     transform: translateY(-2px);
+                }
+
+                a{
+                  display: block;
+                  width: 100%;
+                  height: 100%;
+                  color: white;
                 }
             }
         }
