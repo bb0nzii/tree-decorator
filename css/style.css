@@ -31,33 +31,37 @@ html {
 .home {
   width: 100%;
   min-height: 100vh;
-  background: url(../assets/backgrounds/bg.jpg) no-repeat center center/cover;
+  background: url(../assets/backgrounds/bg.svg) no-repeat center/cover;
+  display: flex;
+  flex-direction: column;
 }
 
 .home-header {
   width: 100%;
   height: 80px;
-  margin-bottom: 3rem;
-  background: black;
+  background: #fff;
+  flex-shrink: 0;
 }
 
 .home-footer {
   width: 100%;
   height: 200px;
-  margin-top: 3rem;
-  background: black;
+  background: #fff;
+  flex-shrink: 0;
 }
 
 .hero {
   width: 100%;
+  margin: auto 0;
+  margin: 3rem 0 3rem 0;
 }
 .hero .hero__content .hero__title {
   font-family: "SchoolSafetyWing";
-  color: white;
   font-size: 3rem;
-  font-weight: 800;
+}
+.hero .hero__content .hero__subtitle {
+  font-size: 1rem;
   margin-bottom: 2rem;
-  text-shadow: 0 0 16px black;
 }
 .hero .hero__content .hero__tree {
   margin: 0 auto;
@@ -87,15 +91,17 @@ html {
 .hero .hero__content .hero__buttons .hero-btn {
   padding: 16px 0;
   border-radius: 12px;
-  background-color: #ffcf2f;
+  background-color: rgb(50, 50, 50);
+  color: white;
   border: none;
   cursor: pointer;
   font-size: 1.2rem;
-  font-weight: 600;
+  letter-spacing: -1%;
+  font-weight: 400;
   transition: 0.2s;
 }
 .hero .hero__content .hero__buttons .hero-btn:hover {
-  background-color: #fdf4db;
+  background-color: #000000;
   transform: translateY(-2px);
 }
 
@@ -125,6 +131,16 @@ html {
   100% {
     transform: translateY(100vh);
     opacity: 0.3;
+  }
+}
+@media (max-width: 1440px) {
+  .home {
+    background-position: left -300px center;
+  }
+}
+@media (max-width: 430px) {
+  html {
+    font-size: 14px;
   }
 }
 @keyframes tree-wobble {
