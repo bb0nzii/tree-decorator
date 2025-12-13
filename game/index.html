@@ -4,9 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/icons/favicon.ico">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>오너먼트 잡기</title>
 </head>
-<body>
+<body class="game">
+    <header class="home-header">
+        <img src="../assets/icons/Light-House.svg">
+    </header>
+
+    <div class="container game-page">
+        <h1 class="game__title">오너먼트 잡기</h1>
+        <p class="game__subtitle">
+            떨어지는 오너먼트를 잡아보세요! <br>
+            근데 이거 미완성이에요 스크립트 아직 안 넣었음 <br>
+        </p>
+
+        <div id="captureWrapper">
+            <div class="tree-area" id="treeArea">
+                <img src="../assets/tree/tree.png" class="game__tree" alt="tree" crossOrigin="anonymous"/>
+                <!-- placed ornaments will be appended here -->
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <div class="control-buttons">
+                <button class="btn start">Start</button>
+                <button class="btn end">End</button>
+            </div>
+
+            <div class="control-arrows">
+                <button class="arrow up">↑</button>
+                <div class="mid-row">
+                    <button class="arrow left">←</button>
+                    <button class="arrow stop">Stop</button>
+                    <button class="arrow right">→</button>
+                </div>
+                <button class="arrow down">↓</button>
+            </div>
+        </div>
+
+
+        <div class="save-btn" id="saveImageBtn" role="button">내 트리 저장하기 (이미지)</div>
+    </div>
     
+
+
+    <footer class="home-footer">
+        <p>
+            본 페이지는 라기의 포트폴리오로 사용될 수 있으며, <br>
+            오픈채팅방 외의 외부공유를 금합니다. <br>
+            &nbsp; <br>
+            © copyright 2025 Ragi. All Right Reserved.
+        </p>
+    </footer>
+
+    <!-- html2canvas CDN for export -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="../js/game.js"></script>
 </body>
 </html>

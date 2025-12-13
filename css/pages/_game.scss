@@ -1,0 +1,135 @@
+.game {
+  width: 100%;
+  min-height: 100vh;
+  background: url(../assets/backgrounds/bg.svg) no-repeat center/cover;
+}
+
+.game-page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.game__title{
+  font-size: 3rem;
+}
+
+.game__subtitle{
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.game__tree {
+  margin: 2rem auto 0 auto;
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* -------------------------------
+   GAME CONTROL PANEL UI
+-------------------------------- */
+
+.control-panel {
+  width: 100%;
+  max-width: 340px;
+  margin: 2rem auto;
+  background: #F9EECF;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Start / End 버튼 */
+.control-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  .btn {
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.15s;
+  }
+
+  .start {
+    background: #A6D492;
+    color: #2c4c2c;
+
+    &:active {
+      transform: scale(0.97);
+      background: #9ac884;
+    }
+  }
+
+  .end {
+    background: #E89C90;
+    color: #642f2f;
+
+    &:active {
+      transform: scale(0.97);
+      background: #d88b7e;
+    }
+  }
+}
+
+/* 방향키 + Stop */
+.control-arrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  .arrow {
+    width: 60px;
+    height: 48px;
+    border: none;
+    background: #fff6dc;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: 0.15s;
+
+    &:active {
+      transform: scale(0.96);
+      background: #f2eacb;
+    }
+  }
+
+  .mid-row {
+    display: flex;
+    gap: 8px;
+
+    .stop {
+      width: 70px;
+      background: #ffffff;
+      font-size: 1rem;
+    }
+  }
+}
+
+/* -------------------------------
+   반응형 처리
+-------------------------------- */
+
+@media (max-width: 480px) {
+  .control-panel {
+    padding: 1.2rem;
+    max-width: 300px;
+  }
+
+  .control-arrows .arrow {
+    width: 54px;
+    height: 44px;
+  }
+}
