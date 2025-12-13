@@ -1,14 +1,16 @@
 function createSnowflake() {
-  const snowflake = document.createElement("div");
+  const snowflake = document.createElement("img");
   snowflake.classList.add("snowflake");
-  snowflake.textContent = "❄";
+  snowflake.src = "./assets/backgrounds/snow.svg";
+  snowflake.alt = "snow";
 
   const size = Math.random() * 12 + 8;
-  snowflake.style.fontSize = `${size}px`;
+  snowflake.style.width = `${size}px`;
+  snowflake.style.height = "auto";
 
   snowflake.style.left = Math.random() * window.innerWidth + "px";
 
-  const duration = Math.random() * 7 + 8; 
+  const duration = Math.random() * 7 + 8;
   snowflake.style.animationDuration = `${duration}s`;
 
   document.getElementById("snow-container").appendChild(snowflake);
