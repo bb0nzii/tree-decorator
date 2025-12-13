@@ -32,8 +32,9 @@
 -------------------------------- */
 
 .control-panel {
-  width: 100%;
-  max-width: 340px;
+  max-width: 600px;
+  width: 90%;
+  min-width: 320px;
   margin: 2rem auto;
   background: #F9EECF;
   padding: 1.5rem;
@@ -117,6 +118,21 @@
     }
   }
 }
+
+.falling-ornament {
+  position: absolute;
+  width: 48px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.placed-ornament {
+  position: absolute;
+  width: 48px;
+  pointer-events: none;
+}
+
+
 
 /* -------------------------------
    반응형 처리

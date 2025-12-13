@@ -360,8 +360,9 @@ html {
    GAME CONTROL PANEL UI
 -------------------------------- */
 .control-panel {
-  width: 100%;
-  max-width: 340px;
+  max-width: 600px;
+  width: 90%;
+  min-width: 320px;
   margin: 2rem auto;
   background: #F9EECF;
   padding: 1.5rem;
@@ -435,6 +436,21 @@ html {
   width: 70px;
   background: #ffffff;
   font-size: 1rem;
+}
+
+.falling-ornament {
+  position: absolute;
+  width: 48px;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.placed-ornament {
+  position: absolute;
+  width: 48px;
+  pointer-events: none;
 }
 
 /* -------------------------------
