@@ -22,21 +22,22 @@ html {
   text-align: center;
 }
 
-@font-face {
-  font-family: "SchoolSafetyWing";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2511-1@1.0/HakgyoansimNalgaeR.woff2") format("woff2");
-  font-weight: normal;
-  font-display: swap;
+:root {
+  --orn-size: 48px;
 }
-.home {
+
+.page-body {
   width: 100%;
   min-height: 100vh;
   background: url(../assets/backgrounds/bg.svg) no-repeat center/cover;
-  display: flex;
-  flex-direction: column;
 }
 
-.home-header {
+@media (max-width: 1440px) {
+  .home {
+    background-position: left -300px center;
+  }
+}
+.site-header {
   width: 100%;
   height: 80px;
   background: #fff;
@@ -45,12 +46,16 @@ html {
   justify-content: center;
   align-items: center;
 }
-.home-header img {
+.site-header a {
+  display: block;
   width: auto;
-  height: 60%;
+  height: 70%;
+}
+.site-header a img {
+  height: 100%;
 }
 
-.home-footer {
+.site-footer {
   width: 100%;
   height: 180px;
   background: #fff;
@@ -59,39 +64,129 @@ html {
   justify-content: center;
   align-items: center;
 }
-.home-footer p {
+
+.site-footer__notice {
   font-size: 1rem;
 }
 
+.site-footer__copyright {
+  display: block;
+  margin-top: 16px;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 3rem 0 3rem 0;
+}
+
+.page-title {
+  font-size: 3rem;
+}
+
+.page-subtitle {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+#captureWrapper {
+  margin: 0 auto;
+  max-width: 600px;
+  width: 90%;
+  min-width: 320px;
+  background: transparent;
+  position: relative;
+}
+
+.tree-area {
+  position: relative;
+  display: block;
+  min-width: 320px;
+  margin: 0 auto 2rem auto;
+  padding: 8px;
+  touch-action: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.tree-area__tree {
+  margin: 2rem auto 0 auto;
+  width: 100%;
+  height: auto;
+  display: block;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+
+button {
+  font-family: "SchoolSafetyWing";
+}
+
+.save-btn {
+  margin: 12px auto 6px;
+  padding: 10px 18px;
+  display: inline-block;
+  border-radius: 10px;
+  background: #ffcf2f;
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+.save-btn:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 430px) {
+  html {
+    font-size: 14px;
+  }
+  .site-header {
+    height: 50px;
+  }
+  :root {
+    --orn-size: 32px !important;
+  }
+}
+:root {
+  --orn-size: 48px;
+}
+
+@font-face {
+  font-family: "SchoolSafetyWing";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2511-1@1.0/HakgyoansimNalgaeR.woff2") format("woff2");
+  font-weight: normal;
+  font-display: swap;
+}
 .hero {
   width: 100%;
   min-height: 80vh;
   padding: 3rem 0;
 }
-.hero .hero__content .hero__title {
-  font-size: 3rem;
-}
-.hero .hero__content .hero__subtitle {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-.hero .hero__content .hero__tree {
+
+.hero__tree {
   margin: 0 auto;
   max-width: 420px;
   width: 80%;
   min-width: 320px;
   margin-bottom: 1rem;
 }
-.hero .hero__content .hero__tree img {
+.hero__tree img {
   width: 100%;
   display: block;
   transform-origin: center center;
   transition: transform 0.2s;
 }
-.hero .hero__content .hero__tree img:hover {
+.hero__tree img:hover {
   animation: tree-wobble 0.4s ease-in-out infinite;
 }
-.hero .hero__content .hero__buttons {
+
+.hero__buttons {
   margin: 0 auto;
   max-width: 420px;
   width: 80%;
@@ -100,12 +195,12 @@ html {
   flex-direction: column;
   gap: 1rem;
 }
-.hero .hero__content .hero__buttons .hero-btn {
+
+.hero-btn {
   padding: 16px 0;
   border-radius: 12px;
   background-color: rgb(50, 50, 50);
   color: white;
-  font-family: "SchoolSafetyWing";
   border: none;
   cursor: pointer;
   font-size: 1.2rem;
@@ -113,11 +208,11 @@ html {
   font-weight: 400;
   transition: 0.2s;
 }
-.hero .hero__content .hero__buttons .hero-btn:hover {
+.hero-btn:hover {
   background-color: #000000;
   transform: translateY(-2px);
 }
-.hero .hero__content .hero__buttons .hero-btn a {
+.hero-btn a {
   display: block;
   width: 100%;
   height: 100%;
@@ -131,7 +226,7 @@ html {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: -1; /* 헤더/푸터보다 뒤로 */
+  z-index: -1;
 }
 
 .snowflake {
@@ -152,84 +247,15 @@ html {
     opacity: 0.3;
   }
 }
-@media (max-width: 1440px) {
-  .home {
-    background-position: left -300px center;
-  }
-}
-@media (max-width: 430px) {
-  html {
-    font-size: 14px;
-  }
-  html .home-header {
-    height: 50px;
-  }
-}
-.deco {
-  width: 100%;
-  min-height: 100vh;
-  background: url(../assets/backgrounds/bg.svg) no-repeat center/cover;
-}
-
-.deco-page {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.container {
-  width: 100%;
-  margin: 3rem 0 3rem 0;
-}
-
-.deco__title {
-  font-size: 3rem;
-}
-
-.deco__subtitle {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-
-#captureWrapper {
-  margin: 0 auto;
-  max-width: 600px;
-  width: 90%;
-  min-width: 320px;
-  background: transparent;
-  position: relative;
-}
-
-/* tree area: 상대위치, drop zone */
-.tree-area {
-  position: relative;
-  display: block;
-  min-width: 320px;
-  margin: 0 auto 2rem auto;
-  padding: 8px;
-  touch-action: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-       user-select: none;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.deco__tree {
-  margin: 2rem auto 0 auto;
-  width: 100%;
-  height: auto;
-  display: block;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  pointer-events: none;
+:root {
+  --orn-size: 48px;
 }
 
 /* placed ornament */
 .placed {
   position: absolute;
-  width: 48px;
-  height: 48px;
+  width: var(--orn-size);
+  height: var(--orn-size);
   transform-origin: center center;
   cursor: grab;
   transition: transform 0.12s ease;
@@ -312,52 +338,8 @@ html {
   pointer-events: none;
 }
 
-/* buttons */
-.save-btn {
-  margin: 12px auto 6px;
-  padding: 10px 18px;
-  display: inline-block;
-  border-radius: 10px;
-  background: #ffcf2f;
-  color: #111;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.12s ease, background 0.12s ease;
-}
-
-.save-btn:hover {
-  transform: translateY(-3px);
-}
-
-.game {
-  width: 100%;
-  min-height: 100vh;
-  background: url(../assets/backgrounds/bg.svg) no-repeat center/cover;
-}
-
-.game-page {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.game__title {
-  font-size: 3rem;
-}
-
-.game__subtitle {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-
-.game__tree {
-  margin: 2rem auto 0 auto;
-  width: 100%;
-  height: auto;
-  display: block;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  pointer-events: none;
+:root {
+  --orn-size: 48px;
 }
 
 /* -------------------------------
@@ -442,19 +424,19 @@ html {
   font-size: 1rem;
 }
 
-.falling-ornament {
+.ornament {
   position: absolute;
-  width: 48px;
-  pointer-events: none;
+  width: var(--orn-size);
+  height: var(--orn-size);
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  touch-action: none;
 }
 
-.placed-ornament {
-  position: absolute;
-  width: 48px;
+.falling {
   pointer-events: none;
+  transform: none;
 }
 
 /* -------------------------------

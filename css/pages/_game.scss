@@ -1,31 +1,4 @@
-.game {
-  width: 100%;
-  min-height: 100vh;
-  background: url(../assets/backgrounds/bg.svg) no-repeat center/cover;
-}
-
-.game-page {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.game__title{
-  font-size: 3rem;
-}
-
-.game__subtitle{
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-
-.game__tree {
-  margin: 2rem auto 0 auto;
-  width: 100%;
-  height: auto;
-  display: block;
-  user-select: none;
-  pointer-events: none;
-}
+@import "../variables";
 
 /* -------------------------------
    GAME CONTROL PANEL UI
@@ -119,18 +92,19 @@
   }
 }
 
-.falling-ornament {
+.ornament {
   position: absolute;
-  width: 48px;
-  pointer-events: none;
+  width: var(--orn-size);
+  height: var(--orn-size);
   user-select: none;
+  touch-action: none;
 }
 
-.placed-ornament {
-  position: absolute;
-  width: 48px;
+.falling {
   pointer-events: none;
+  transform: none;
 }
+
 
 
 

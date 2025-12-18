@@ -45,7 +45,7 @@ function spawnOrnament() {
 
   const img = document.createElement("img");
   img.src = randomOrnament();
-  img.className = "falling-ornament";
+  img.classList.add("ornament", "falling");
 
   const rect = treeArea.getBoundingClientRect();
 
@@ -118,8 +118,9 @@ stopBtn.addEventListener("click", () => {
   clearInterval(fallInterval);
 
   // 고정 상태로 전환
-  currentOrnament.classList.remove("falling-ornament");
-  currentOrnament.classList.add("placed-ornament");
+  currentOrnament.classList.remove("falling");
+  currentOrnament.classList.add("placed");
+
 
   // 현재 오너먼트 해제
   currentOrnament = null;
@@ -151,7 +152,7 @@ rightBtn.addEventListener("click", () => {
 });
 
 /* -------------------------------
-   키보드 컨트롤 (game.js 전용)
+   키보드 컨트롤
 -------------------------------- */
 
 window.addEventListener("keydown", (e) => {
@@ -171,7 +172,8 @@ window.addEventListener("keydown", (e) => {
     case "ArrowRight":
       e.preventDefault();
       currentX += STEP;
-      currentX = Math.min(rect.width - 48, currentX);
+      const size = currentOrnament.offsetWidth;
+      currentX = Math.min(rect.width - size, currentX);
       currentOrnament.style.left = currentX + "px";
       break;
 
@@ -181,33 +183,4 @@ window.addEventListener("keydown", (e) => {
       stopBtn.click();
       break;
   }
-});
-
-
-
-
-
-
-const saveBtn = document.getElementById('saveImageBtn');
-const captureWrapper = document.getElementById('captureWrapper');
-
-saveBtn.addEventListener('click', () => {
-  if (!captureWrapper) {
-    alert("캡처 대상 요소(captureWrapper)를 찾을 수 없습니다.");
-    return;
-  }
-
-  html2canvas(captureWrapper, {
-    useCORS: true,
-    backgroundColor: "#ffffff",
-    scale: 3, 
-  }).then(canvas => {
-    const link = document.createElement('a');
-    link.download = 'my-tree.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-  }).catch(err => {
-    console.error("캡처 오류:", err);
-    alert("이미지를 저장하는 중 문제가 발생했습니다.");
-  });
 });

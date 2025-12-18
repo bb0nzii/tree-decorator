@@ -1,66 +1,10 @@
-.deco {
-  width: 100%;
-  min-height: 100vh;
-  background: url(../assets/backgrounds/bg.svg) no-repeat center/cover;
-}
-
-.deco-page {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.container{
-  width: 100%;
-  margin: 3rem 0 3rem 0;  
-} 
-  
-.deco__title{
-  font-size: 3rem;
-}
-
-.deco__subtitle{
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-
-#captureWrapper {
-  margin: 0 auto;
-  max-width: 600px;
-  width: 90%;
-  min-width: 320px;
-  background: transparent;
-  position: relative;
-}
-
-
-/* tree area: 상대위치, drop zone */
-.tree-area {
-  position: relative;
-  display: block;
-  min-width: 320px;
-  margin: 0 auto 2rem auto;
-  padding: 8px;
-  touch-action: none;
-  -webkit-user-select: none;
-  user-select: none;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.5);
-}
-
-.deco__tree {
-  margin: 2rem auto 0 auto;
-  width: 100%;
-  height: auto;
-  display: block;
-  user-select: none;
-  pointer-events: none;
-}
+@import "../variables";
 
 /* placed ornament */
 .placed {
   position: absolute;
-  width: 48px;
-  height: 48px;
+  width: var(--orn-size);
+  height: var(--orn-size);
   transform-origin: center center;
   cursor: grab;
   transition: transform 0.12s ease;
@@ -81,6 +25,7 @@
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
   transform: scale(1.02);
 }
+
 
 
 .board {
@@ -107,6 +52,8 @@
   gap: 8px;
 }
 
+
+
 /* slot */
 .slot {
   width: 72px;
@@ -131,7 +78,6 @@
   opacity: 0.9;
 }
 
-
 .slot img {
   width: 56px;
   height: 56px;
@@ -139,17 +85,3 @@
   user-select: none;
   pointer-events: none;
 }
-
-/* buttons */
-.save-btn {
-  margin: 12px auto 6px;
-  padding: 10px 18px;
-  display: inline-block;
-  border-radius: 10px;
-  background: #ffcf2f;
-  color: #111;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform .12s ease, background .12s ease;
-}
-.save-btn:hover { transform: translateY(-3px); }
