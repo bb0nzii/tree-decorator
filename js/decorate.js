@@ -8,7 +8,7 @@
 */
 
 (function () {
-  const ORN_COUNT = 18;
+  const ORN_COUNT = 19;
   const ORN_PATH = '../assets/ornaments/';
   const ORN_PREFIX = 'orn';
   const ORN_EXT = '.png';

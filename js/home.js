@@ -1,5 +1,6 @@
 function createSnowflake() {
-  const snowflake = document.createElement("img");
+  const snowflake =
+  document.createElement("img");
   snowflake.classList.add("snowflake");
   snowflake.src = "./assets/backgrounds/snow.svg";
   snowflake.alt = "snow";

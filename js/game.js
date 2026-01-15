@@ -14,7 +14,7 @@ const stopBtn = document.querySelector(".arrow.stop");
    오너먼트 리소스
 -------------------------------- */
 const ORN_PATH = "../assets/ornaments/";
-const ORN_COUNT = 18;
+const ORN_COUNT = 19;
 
 const ORNAMENTS = Array.from({ length: ORN_COUNT }, (_, i) =>
   `${ORN_PATH}orn${i + 1}.png`
